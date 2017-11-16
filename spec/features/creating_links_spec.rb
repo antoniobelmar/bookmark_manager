@@ -1,4 +1,4 @@
- # Capybara.app = Bookmark
+
   feature 'creating links' do
     scenario 'user can input a new link' do
       visit '/create_link'
@@ -17,12 +17,23 @@
       expect(page).to have_content('books')
     end
 
-    # scenario 'user can tag a link' do
-    #   fill_and_add_bookmark
-    #   #link = link.tags link.save
-    #   expect(link.tags).to have_content('books')
-    # end
+  feature 'filtering by tag' do
+    scenario 'visit links/bubbles and see all links tagged with bubbles' do
+      visit '/create_link'
+      fill_in :link_name, with: 'bubbles'
+      fill_in :link_url, with: 'www.bubbles.com'
+      fill_in :link_tag, with: 'bubbles'
+      click_button 'Add Link'
+      visit '/tags/bubbles'
+      expect(page).to have_content('bubbles')
+    end
   end
 
-
+  feature 'filtering by tag' do
+    scenario 'visit links/bubbles and not see links tagged with books' do
+      fill_and_add_bookmark
+      visit '/tags/bubbles'
+      expect(page).to_not have_content('books')
+    end
+  end
 end
