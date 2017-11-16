@@ -10,6 +10,7 @@ class Bookmark < Sinatra::Base
 
   get '/links' do
     @links = Link.all
+    #@link_tag = link_tag
     erb(:links)
   end
 

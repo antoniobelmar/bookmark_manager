@@ -17,5 +17,12 @@
       expect(page).to have_content('books')
     end
 
+    # scenario 'user can tag a link' do
+    #   fill_and_add_bookmark
+    #   #link = link.tags link.save
+    #   expect(link.tags).to have_content('books')
+    # end
+  end
+
 
 end

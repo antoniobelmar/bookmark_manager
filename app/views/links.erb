@@ -1,7 +1,7 @@
 <html>
   <ul>
     <% @links.each do |link| %>
-    <li> <%= link.name %> <%=link.tags.map { |t| t.name }%> </li>
+    <li> <%= link.name %> <%=link.tags. { |t| t.name }%> </li>
     <% end %>
   </ul>
 </html>
