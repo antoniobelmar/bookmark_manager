@@ -36,4 +36,18 @@
       expect(page).to_not have_content('books')
     end
   end
+
+  feature 'adds multiple tags' do
+    scenario 'shows multiple tags' do
+      visit '/create_link'
+      fill_in :link_name, with: 'bubbles'
+      fill_in :link_url, with: 'www.bubbles.com'
+      fill_in :link_tag, with: 'bubbles,apples'
+      click_button 'Add Link'
+      link = Link.last
+      expect(link.tags.map {|tag| tag.name }).to include('bubbles')
+      expect(link.tags.map {|tag| tag.name }).to include('apples')
+    end
+  end
+
 end
