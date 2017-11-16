@@ -14,7 +14,7 @@ Capybara.app = Bookmark
 
 RSpec.configure do |config|
   require 'data_mapper'
-  
+
     config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
