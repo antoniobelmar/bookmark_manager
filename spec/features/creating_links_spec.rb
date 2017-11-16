@@ -18,6 +18,8 @@
 
       scenario 'user can tag a link' do
         visit '/create_link'
+        fill_in :link_name, with: 'Google'
+        fill_in :link_url, with: 'www.google.co.uk'
         fill_in :link_tag, with: 'books'
         click_button 'Add Link'
         expect(page).to have_content('books')
