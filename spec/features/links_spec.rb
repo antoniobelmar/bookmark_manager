@@ -1,6 +1,3 @@
-# feature tests for Bookmark Manager Index Page
- # Capybara.app = Bookmark
-
 describe 'Bookmark', :type => :feature do
 
   feature '#index' do
